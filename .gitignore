@@ -1,0 +1,16 @@
+# Build results
+Debug/
+DebugPublic/
+Release/
+Releases/
+x64/
+x86/
+build/
+bld/
+Bin/
+Obj/
+
+*.swp
+*.suo
+*.user
+*.sln.docstates
