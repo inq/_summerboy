@@ -35,11 +35,15 @@ namespace summerboy
 
         private void Window_Initialized(object sender, EventArgs e)
         {
+            Imagination.ImageLoader ldr = new Imagination.ImageLoader();
+            log("" + ldr.get724());
+            ldr.set724(235);
+            log("" + ldr.get724());
             r = 150;
             g = 100;
             b = 100;
 
-            var image = new BitmapImage(new Uri(""));
+            var image = new BitmapImage(new Uri("c:/Emgu/1.jpg"));
             wb = new WriteableBitmap(image.PixelWidth, image.PixelHeight, image.DpiX, image.DpiY, PixelFormats.Bgra32, null);
             log("initialized.");
             this.SizeToContent = SizeToContent.Width;
