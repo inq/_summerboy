@@ -1,14 +1,15 @@
 ﻿<Window x:Class="summerboy.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="summerboy" Height="600" Initialized="Window_Initialized">
+        Title="summerboy" Height="600" Initialized="Window_Initialized" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         
-        <Image Grid.Column="0" x:Name="imageBox" Margin="0,0,0,0"/>
+        <Image Grid.Column="0" x:Name="imageBox" Margin="0,0,0,0" MouseLeftButtonDown="imageBox_MouseLeftButtonDown"/>
+        <Image Grid.Column="0" x:Name="surveyBox" Margin="0,0,0,0" MouseLeftButtonDown="imageBox_MouseLeftButtonDown"/>
         <TextBox Grid.Column="1" x:Name="statusBox" Margin="0,0,0,0" TextWrapping="Wrap" Background="Black" IsEnabled="False" Foreground="White"/>
     </Grid>
 </Window>
