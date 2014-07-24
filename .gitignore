@@ -10,6 +10,13 @@ bld/
 Bin/
 Obj/
 
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
 *.swp
 *.suo
 *.user

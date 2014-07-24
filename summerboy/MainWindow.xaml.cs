@@ -39,6 +39,7 @@ namespace summerboy
             log("" + ldr.get724());
             ldr.set724(235);
             log("" + ldr.get724());
+
             r = 150;
             g = 100;
             b = 100;
