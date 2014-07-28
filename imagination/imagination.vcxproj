@@ -67,7 +67,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies />
+      <AdditionalDependencies>$(SolutionDir)$(Configuration)\open_surf.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -77,14 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="image_loader.h" />
-    <ClInclude Include="imagination.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="processor.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="image_loader.cpp" />
-    <ClCompile Include="imagination.cpp" />
+    <ClCompile Include="processor.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -43,6 +43,10 @@
     <IncludePath>..\opencv\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\opencv\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>..\opencv\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>..\opencv\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -75,14 +79,15 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <Lib>
+      <AdditionalDependencies>opencv_imgproc249.lib;opencv_calib3d249.lib;opencv_highgui249.lib;opencv_core249.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fasthessian.cpp" />
     <ClCompile Include="integral.cpp" />
     <ClCompile Include="ipoint.cpp" />
+    <ClCompile Include="matcher.cpp" />
     <ClCompile Include="surf.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
@@ -91,6 +96,7 @@
     <ClInclude Include="integral.h" />
     <ClInclude Include="ipoint.h" />
     <ClInclude Include="kmeans.h" />
+    <ClInclude Include="matcher.h" />
     <ClInclude Include="responselayer.h" />
     <ClInclude Include="surf.h" />
     <ClInclude Include="surflib.h" />

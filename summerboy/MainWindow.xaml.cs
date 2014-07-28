@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace summerboy
     {
         private WriteableBitmap wb;
         private int r, g, b;
+        private String ipt;
 
         public MainWindow()
         {
@@ -32,6 +34,7 @@ namespace summerboy
         {
             statusBox.Text += DateTime.Now.ToString("[hh:mm:ss] ") + message + "\n";
         }
+
 
         private void Window_Initialized(object sender, EventArgs e)
         {
@@ -44,7 +47,15 @@ namespace summerboy
             g = 100;
             b = 100;
 
-            var image = new BitmapImage(new Uri("c:/Emgu/1.jpg"));
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Image Files|*.jpg";
+            openFileDialog1.Title = "Choose the base";
+
+            if (openFileDialog1.ShowDialog() != true)
+                return;
+
+            ipt = openFileDialog1.FileName;
+            var image = new BitmapImage(new Uri(openFileDialog1.FileName));
             wb = new WriteableBitmap(image.PixelWidth, image.PixelHeight, image.DpiX, image.DpiY, PixelFormats.Bgra32, null);
             log("initialized.");
             this.SizeToContent = SizeToContent.Width;
@@ -82,6 +93,29 @@ namespace summerboy
             
             wb.AddDirtyRect(new Int32Rect(0, 0, wb.PixelWidth, wb.PixelHeight));
             wb.Unlock();
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.R:
+                    OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                    openFileDialog1.Multiselect = true;
+                    openFileDialog1.Filter = "Image Files|*.jpg";
+                    openFileDialog1.Title = "Choose the targets";
+
+                    if (openFileDialog1.ShowDialog() != true)
+                        return;
+
+                    var hello = new Imagination.Processor(ipt, openFileDialog1.FileNames);
+                    
+                    
+                    break;
+                case Key.Space:
+                    log("SPACE");
+                    break;
+            }
         }
     }
 }
